@@ -4,6 +4,8 @@ var searchTerm = 'aubergine'
 var apiAddress = `${firstPart}${searchTerm}${secondPart}Id=${apiID}&appKey=${apiKey}`
 var xhr = new XMLHttpRequest();
 
+var test1 = 'hi'
+
 xhr.addEventListener('load', function () {
       var result = JSON.parse(xhr.responseText);
       console.log(result)
