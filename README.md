@@ -3,7 +3,7 @@
 
 ## What?
 - Build a website that utlises at least 2 APIs
-- **Chosen subject matter:** food and nutrition education
+- **Chosen subject matter:** food and nutrition education  
 We are going to build a website that provides nutritional information for users.
 
 ## Core features (MVP)
