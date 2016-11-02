@@ -18,7 +18,7 @@ xhr.addEventListener('load', function () {
   document.getElementById('input').value = '';
   var result = JSON.parse(xhr.responseText);
   if (result.total_hits === 0) {
-    appendNutrition('h3', searchTerm + ' aint a thing', '', 'error')
+    appendNutrition('p', searchTerm + " isn't really something you should eat...", '', 'error')
     return;
   }
   var itemName = result.hits[0].fields.item_name;
@@ -38,6 +38,11 @@ xhr.send();
 
 
 document.getElementById('search').addEventListener('click', function() {
+  if (!document.getElementById('input').value) {
+    document.getElementById('ingredient').innerHTML = '';
+    document.getElementById('error').innerHTML = 'We need an input! Ya silly';
+    return;
+  }
   var inputField = document.getElementById('input').value;
   nutrition(inputField);
 })
