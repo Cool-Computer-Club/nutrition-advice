@@ -20,11 +20,11 @@ xhr.addEventListener('load', function () {
     } else {
       document.getElementById('spell-check').innerText = "";
       document.getElementById('searchWord').innerText ="";
-      nutrition(searchTerm);
+      foodFinder.nutrition(searchTerm);
       }
     });
 
-    document.getElementById('searchWord').onclick= function(){  
+    document.getElementById('searchWord').onclick= function(){
       document.getElementById('spell-check').innerText = "";
       document.getElementById('searchWord').innerText ="";
       nutrition(suggResult);
