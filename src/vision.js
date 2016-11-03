@@ -1,6 +1,3 @@
-
-var donutImage = 'https://static.pexels.com/photos/41300/berliner-breakfast-bun-cake-41300-large.jpeg'
-var carrotImage = 'https://static.pexels.com/photos/143133/pexels-photo-143133-large.jpeg'
 var describeImage = new XMLHttpRequest();
 
 describeImage.addEventListener('load', function() {
@@ -9,7 +6,6 @@ describeImage.addEventListener('load', function() {
     spellcheck(result.tags[0].name);
   })
 
-
 var getImageDescription = function (url) {
   describeImage.open('POST', "https://api.projectoxford.ai/vision/v1.0/tag?maxCandidates=1");
   describeImage.setRequestHeader("Content-Type", "application/json");
@@ -17,3 +13,16 @@ var getImageDescription = function (url) {
   var body = JSON.stringify({url : url});
   describeImage.send(body);
 }
+
+document.getElementById('imgUpload').addEventListener('click', function(){
+  document.getElementById('pics').style.display = 'inline';
+  document.getElementById('imgUpload').style.display = 'none';
+})
+
+document.getElementById('carrot').addEventListener('click', function(){
+  getImageDescription('https://static.pexels.com/photos/143133/pexels-photo-143133-large.jpeg')
+})
+
+document.getElementById('donut').addEventListener('click', function(){
+  getImageDescription('https://static.pexels.com/photos/41300/berliner-breakfast-bun-cake-41300-large.jpeg')
+})
