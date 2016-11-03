@@ -21,3 +21,14 @@ QUnit.test('about text becomes visible again if user searches something, then cl
   document.getElementById('search').click();
   assert.equal(document.getElementById('about').style.visibility, 'visible', 'Passed');
 });
+
+QUnit.test('clicking on search activates spellcheck function if search field is not blank', function( assert ) {
+  document.getElementById('input').value = 'p';
+  document.getElementById('search').click();
+  assert.equal(spellCheckActive, true, 'Passed');
+});
+
+QUnit.test('when spellCheck function is called, API is queried', function( assert ) {
+  spellcheck();
+  assert.equal(!result, true, 'Passed');
+});

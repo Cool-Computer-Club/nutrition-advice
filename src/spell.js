@@ -1,5 +1,8 @@
+var result;
+
 
 function spellcheck(newSearchTerm) {
+  spellCheckActive = true;
 var domainName = 'https://api.cognitive.microsoft.com/bing/v5.0/spellcheck/?Text='
 var searchTerm = newSearchTerm;
 var suggResult;
@@ -7,8 +10,9 @@ var apiAddress = `${domainName}${searchTerm}`
 var xhr = new XMLHttpRequest();
 
 xhr.addEventListener('load', function () {
-      var result = JSON.parse(xhr.responseText);
+      result = JSON.parse(xhr.responseText);
       console.log(result);
+      console.log(result.flaggedTokens);
       if (result.flaggedTokens.length > 0) {
       suggResult=result.flaggedTokens[0].suggestions[0].suggestion;
       document.getElementById('spell-check').innerText = "Did you mean ";

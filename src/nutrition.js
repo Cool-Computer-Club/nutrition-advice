@@ -1,4 +1,5 @@
 var active = false;
+var spellCheckActive = false;
 
 function nutrition(newSearchTerm) {
   var firstPart = 'https://api.nutritionix.com/v1_1/search/'
