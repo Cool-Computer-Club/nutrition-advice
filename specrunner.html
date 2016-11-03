@@ -7,11 +7,39 @@
   <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.0.1.css">
 </head>
 <body>
+  <header class='header'>
+    <h1>Food Finder</h1>
+  </header>
+
+  <section class='input'>
+    <h2>Ingredient</h2>
+    <input id='input'></input>
+    <button id='search'>Search</button>
+    <p id="spell-check"></p><p id="searchWord"></p>
+    <p id='error'></p>
+  </section>
+
+  <section id= 'about' class='about'>
+    <h2>Instructions</h2>
+    <p>Enter your ingredient, we will tell you it's nutritional values!</p>
+  </section>
+
+  <section id ='results' class='results'>
+    <h2>results</h2>
+
+    <article id ='nutrition' class='nutrition'>
+      <h3>Nutrition</h3>
+      <section id='ingredient'>
+      </section>
+    </article>
+  </section>
   <div id="qunit"></div>
   <div id="qunit-fixture"></div>
   <script src="https://code.jquery.com/qunit/qunit-2.0.1.js"></script>
   <script src='secret.js'></script>
   <script src='src/nutrition.js'></script>
+  <script src='src/spell.js'></script>
+  <script src='src/vision.js'></script>
   <script src="specs/tests.js"></script>
 </body>
 </html>
