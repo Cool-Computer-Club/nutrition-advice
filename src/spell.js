@@ -20,7 +20,9 @@ xhr.addEventListener('load', function () {
       }
     });
 
-    document.getElementById('searchWord').onclick= function(){
+    document.getElementById('searchWord').onclick= function(){  
+      document.getElementById('spell-check').innerText = "";
+      document.getElementById('searchWord').innerText ="";
       nutrition(suggResult);
     }
 xhr.open('POST', apiAddress);
