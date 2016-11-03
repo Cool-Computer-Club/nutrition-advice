@@ -8,8 +8,8 @@ function nutrition(newSearchTerm) {
   function appendNutrition (tagType, name, tagContent = '', targetID = 'ingredient') {
     var newtritionElement = document.createElement(tagType);
     var newtritionContent = document.createTextNode(name + ' ' + tagContent);
-    newtritionElement.append(newtritionContent);
-    document.getElementById(targetID).append(newtritionElement);
+    newtritionElement.appendChild(newtritionContent);
+    document.getElementById(targetID).appendChild(newtritionElement);
   }
 
   xhr.addEventListener('load', function () {
