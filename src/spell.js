@@ -12,6 +12,7 @@ xhr.addEventListener('load', function () {
       var suggResult=result.flaggedTokens[0].suggestions[0].suggestion+"?";
       document.getElementById('spell-check').innerText = "Did you mean "+suggResult;
     } else {
+      document.getElementById('spell-check').innerText = "";
       nutrition(searchTerm);
       }
     });
