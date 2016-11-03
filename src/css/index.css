@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  text-align: center;
 }
 
 html, body {
@@ -9,20 +10,17 @@ html, body {
 }
 
 .header {
-  text-align: center;
   font-family: futura;
   font-size: 1.5rem;
   margin-top: -20px;
 }
 
 .input {
-  text-align: center;
   font-family: futura;
   font-size: 1.2rem;
 }
 
 .about {
-  text-align: center;
   font-family: futura;
   font-size: 0.75rem;
 }
@@ -32,7 +30,6 @@ html, body {
 
 .results {
   margin-top: -60px;
-  text-align: center;
   font-family: futura;
   font-size: 1.5rem;
   visibility: hidden;
