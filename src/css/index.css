@@ -126,9 +126,17 @@ img {
   display:none;
 }
 
-@media (max-width: 600px) {
+@media (min-width: 600px) {
+  header{
+    margin-bottom: -12%;
+  }
   .splat-container {
     left: 0%;
     bottom: 0;
+  }
+  .splat-container2 {
+    position: absolute;
+    top: 2%;
+    left: 40%;
   }
 }
