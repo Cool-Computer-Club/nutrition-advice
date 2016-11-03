@@ -21,24 +21,24 @@ function nutrition(newSearchTerm) {
   }
 
   xhr.addEventListener('load', function () {
-    document.getElementById('ingredient').innerHTML = '';
-    document.getElementById('error').innerHTML = '';
-    document.getElementById('input').value = '';
     var result = JSON.parse(xhr.responseText);
+    var itemName = result.hits[0].fields.item_name;
+    var calories = result.hits[0].fields.nf_calories;
+    var sugars = result.hits[0].fields.nf_sugars;
+    var fiber = result.hits[0].fields.nf_dietary_fiber;
     if (result.total_hits === 0) {
       appendNutrition('p', searchTerm + " isn't really something you should eat...", '', 'error');
       document.getElementById('results').style.visibility = 'hidden';
       document.getElementById('about').style.visibility = 'hidden';
       return;
     }
-    var itemName = result.hits[0].fields.item_name;
-    var calories = result.hits[0].fields.nf_calories;
-    var sugars = result.hits[0].fields.nf_sugars;
-    var fiber = result.hits[0].fields.nf_dietary_fiber;
     appendNutrition('h3', itemName);
     appendNutrition('p', 'Calories: ', calories);
     appendNutrition('p', 'Sugars: ', sugars);
     appendNutrition('p', 'Fiber: ', fiber);
+    document.getElementById('ingredient').innerHTML = '';
+    document.getElementById('error').innerHTML = '';
+    document.getElementById('input').value = '';
     document.getElementById('results').style.visibility = 'visible';
     document.getElementById('about').style.visibility = 'hidden';
   });
