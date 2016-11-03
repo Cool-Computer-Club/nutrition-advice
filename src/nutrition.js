@@ -18,7 +18,9 @@ xhr.addEventListener('load', function () {
   document.getElementById('input').value = '';
   var result = JSON.parse(xhr.responseText);
   if (result.total_hits === 0) {
-    appendNutrition('p', searchTerm + " isn't really something you should eat...", '', 'error')
+    appendNutrition('p', searchTerm + " isn't really something you should eat...", '', 'error');
+    document.getElementById('results').style.visibility = 'hidden';
+    document.getElementById('about').style.visibility = 'visible';
     return;
   }
   var itemName = result.hits[0].fields.item_name;
@@ -30,6 +32,8 @@ xhr.addEventListener('load', function () {
   appendNutrition('p', 'Sugars: ', sugars);
   appendNutrition('p', 'Fiber: ', fiber);
   console.log(itemName);
+  document.getElementById('results').style.visibility = 'visible';
+  document.getElementById('about').style.visibility = 'hidden';
 });
 
 xhr.open('GET', apiAddress);
@@ -41,6 +45,8 @@ document.getElementById('search').addEventListener('click', function() {
   if (!document.getElementById('input').value) {
     document.getElementById('ingredient').innerHTML = '';
     document.getElementById('error').innerHTML = 'We need an input! Ya silly';
+    document.getElementById('results').style.visibility = 'hidden';
+    document.getElementById('about').style.visibility = 'visible';
     return;
   }
   var inputField = document.getElementById('input').value;

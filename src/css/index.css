@@ -1,0 +1,38 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: rgb(195, 185, 204);
+}
+
+.header {
+  text-align: center;
+  font-family: futura;
+  font-size: 1.5rem;
+  margin-top: -20px;
+}
+
+.input {
+  text-align: center;
+  font-family: futura;
+  font-size: 1.2rem;
+}
+
+.about {
+  text-align: center;
+  font-family: futura;
+  font-size: 0.75rem;
+}
+.about h2 {
+  font-size: 1rem;
+}
+
+.results {
+  text-align: center;
+  font-family: futura;
+  font-size: 1.5rem;
+  visibility: hidden;
+}
