@@ -21,8 +21,10 @@ document.getElementById('imgUpload').addEventListener('click', function(){
 
 document.getElementById('carrot').addEventListener('click', function(){
   getImageDescription('https://static.pexels.com/photos/143133/pexels-photo-143133-large.jpeg')
+  document.getElementById('donut').style.display = 'none';
 })
 
 document.getElementById('donut').addEventListener('click', function(){
   getImageDescription('https://static.pexels.com/photos/41300/berliner-breakfast-bun-cake-41300-large.jpeg')
+  document.getElementById('carrot').style.display = 'none';
 })
