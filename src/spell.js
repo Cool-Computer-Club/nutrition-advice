@@ -15,6 +15,7 @@ xhr.addEventListener('load', function () {
       document.getElementById('searchWord').innerText = suggResult+"?";
     } else {
       document.getElementById('spell-check').innerText = "";
+      document.getElementById('searchWord').innerText ="";
       nutrition(searchTerm);
       }
     });
