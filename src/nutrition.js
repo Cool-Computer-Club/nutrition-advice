@@ -38,7 +38,6 @@ function nutrition(newSearchTerm) {
     appendNutrition('p', 'Fiber: ', fiber);
     document.getElementById('ingredient').innerHTML = '';
     document.getElementById('error').innerHTML = '';
-    document.getElementById('input').value = '';
     document.getElementById('results').style.visibility = 'visible';
     document.getElementById('about').style.visibility = 'hidden';
   });
