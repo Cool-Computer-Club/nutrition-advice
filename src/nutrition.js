@@ -2,7 +2,7 @@ function nutrition(newSearchTerm) {
 var firstPart = 'https://api.nutritionix.com/v1_1/search/'
 var secondPart = '?results=0%3A20&cal_min=0&cal_max=50000&fields=item_name%2Cnf_sugars%2Cnf_calories%2Cnf_dietary_fiber&'
 var searchTerm = newSearchTerm
-var apiAddress = `${firstPart}${searchTerm}${secondPart}appId=${apiID}&appKey=${apiKey}`
+var apiAddress = `${firstPart}${searchTerm}${secondPart}appId=${nutritionApiID}&appKey=${nutritionApiKey}`
 var xhr = new XMLHttpRequest();
 
   function appendNutrition (tagType, name, tagContent = '', targetID = 'ingredient') {
@@ -44,5 +44,5 @@ document.getElementById('search').addEventListener('click', function() {
     return;
   }
   var inputField = document.getElementById('input').value;
-  nutrition(inputField);
+  spellcheck(inputField);
 })
