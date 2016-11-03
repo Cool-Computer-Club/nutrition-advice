@@ -65,3 +65,14 @@ html, body {
   box-shadow: 0 4px rgb(102, 88, 99);
   cursor:pointer;
 }
+
+#pics {
+  width: 60%;
+  margin: auto;
+  border-radius: 5%;
+  display:none;
+}
+
+img {
+  width: 47%;
+}
