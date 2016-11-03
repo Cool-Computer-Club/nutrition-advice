@@ -9,11 +9,13 @@ var xhr = new XMLHttpRequest();
 xhr.addEventListener('load', function () {
       var result = JSON.parse(xhr.responseText);
       console.log(result)
+      document.getElementById('spell-check').innerText = "Did you mean "+result.flaggedTokens[0].suggestions[0].suggestion+"?";
     });
 
 xhr.open('POST', apiAddress);
 xhr.setRequestHeader("Ocp-Apim-Subscription-Key", spellApiKey);
 xhr.send(`Text=${searchTerm}`);
+
 
 // OLD RECIPE API - Keep until Cleo has spoken to Sohil
 // curl "https://api.edamam.com/search"
