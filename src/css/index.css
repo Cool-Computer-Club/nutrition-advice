@@ -55,6 +55,11 @@ h1 {
 
 .input {
   font-size: 1.2rem;
+  margin-top: 18%;
+}
+
+.input h2 {
+  font-size: 1rem;
 }
 
 #input {
