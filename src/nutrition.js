@@ -50,7 +50,6 @@ function nutrition(newSearchTerm) {
 document.getElementById('search').addEventListener('click', function() {
 active = true;
   if (!document.getElementById('input').value) {
-    document.getElementById('ingredient').innerHTML = '';
     document.getElementById('error').innerHTML = 'We need an input! Ya silly';
     document.getElementById('results').style.visibility = 'hidden';
     document.getElementById('about').style.visibility = 'visible';
