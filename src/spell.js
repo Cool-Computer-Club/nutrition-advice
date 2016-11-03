@@ -1,19 +1,27 @@
 
-console.log('chicken!!!!')
-
+function spellcheck(newSearchTerm) {
 var domainName = 'https://api.cognitive.microsoft.com/bing/v5.0/spellcheck/?Text='
-var searchTerm = 'chcken'
+var searchTerm = newSearchTerm;
 var apiAddress = `${domainName}${searchTerm}`
 var xhr = new XMLHttpRequest();
 
 xhr.addEventListener('load', function () {
       var result = JSON.parse(xhr.responseText);
-      console.log(result)
+      console.log(result);
+      if (result.flaggedTokens.length > 0) {
+      var suggResult=result.flaggedTokens[0].suggestions[0].suggestion+"?";
+      document.getElementById('spell-check').innerText = "Did you mean "+suggResult;
+    } else {
+      nutrition(searchTerm);
+      }
     });
 
 xhr.open('POST', apiAddress);
 xhr.setRequestHeader("Ocp-Apim-Subscription-Key", spellApiKey);
 xhr.send(`Text=${searchTerm}`);
+
+// getElementById('id')
+};
 
 // OLD RECIPE API - Keep until Cleo has spoken to Sohil
 // curl "https://api.edamam.com/search"

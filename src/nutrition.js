@@ -49,5 +49,5 @@ document.getElementById('search').addEventListener('click', function() {
     return;
   }
   var inputField = document.getElementById('input').value;
-  nutrition(inputField);
-});
+  spellcheck(inputField);
+})
