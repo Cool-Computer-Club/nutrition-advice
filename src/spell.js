@@ -2,6 +2,7 @@
 function spellcheck(newSearchTerm) {
 var domainName = 'https://api.cognitive.microsoft.com/bing/v5.0/spellcheck/?Text='
 var searchTerm = newSearchTerm;
+var suggResult;
 var apiAddress = `${domainName}${searchTerm}`
 var xhr = new XMLHttpRequest();
 
@@ -9,14 +10,18 @@ xhr.addEventListener('load', function () {
       var result = JSON.parse(xhr.responseText);
       console.log(result);
       if (result.flaggedTokens.length > 0) {
-      var suggResult=result.flaggedTokens[0].suggestions[0].suggestion+"?";
-      document.getElementById('spell-check').innerText = "Did you mean "+suggResult;
+      suggResult=result.flaggedTokens[0].suggestions[0].suggestion;
+      document.getElementById('spell-check').innerText = "Did you mean ";
+      document.getElementById('searchWord').innerText = suggResult+"?";
     } else {
       document.getElementById('spell-check').innerText = "";
       nutrition(searchTerm);
       }
     });
 
+    document.getElementById('searchWord').onclick= function(){
+      nutrition(suggResult);
+    }
 xhr.open('POST', apiAddress);
 xhr.setRequestHeader("Ocp-Apim-Subscription-Key", spellApiKey);
 xhr.send(`Text=${searchTerm}`);
