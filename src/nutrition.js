@@ -1,18 +1,48 @@
+function nutrition(newSearchTerm) {
 var firstPart = 'https://api.nutritionix.com/v1_1/search/'
-var secondPart = '?results=0%3A20&cal_min=0&cal_max=50000&fields=item_name%2Cnf_calories%2Citem_type=3&app'
-var searchTerm = 'aubergine'
-var apiAddress = `${firstPart}${searchTerm}${secondPart}Id=${apiID}&appKey=${apiKey}`
+var secondPart = '?results=0%3A20&cal_min=0&cal_max=50000&fields=item_name%2Cnf_sugars%2Cnf_calories%2Cnf_dietary_fiber&'
+var searchTerm = newSearchTerm
+var apiAddress = `${firstPart}${searchTerm}${secondPart}appId=${apiID}&appKey=${apiKey}`
 var xhr = new XMLHttpRequest();
 
-var test1 = 'hi'
+  function appendNutrition (tagType, name, tagContent = '', targetID = 'ingredient') {
+    var newtritionElement = document.createElement(tagType);
+    var newtritionContent = document.createTextNode(name + ' ' + tagContent);
+    newtritionElement.append(newtritionContent);
+    document.getElementById(targetID).append(newtritionElement);
+  }
 
 xhr.addEventListener('load', function () {
-      var result = JSON.parse(xhr.responseText);
-      console.log(result)
-      console.log(result.hits[0].fields.item_name);
-      console.log(result.hits[0].fields.nf_calories, 'calories');
-
-    });
+  document.getElementById('ingredient').innerHTML = '';
+  document.getElementById('error').innerHTML = '';
+  document.getElementById('input').value = '';
+  var result = JSON.parse(xhr.responseText);
+  if (result.total_hits === 0) {
+    appendNutrition('p', searchTerm + " isn't really something you should eat...", '', 'error')
+    return;
+  }
+  var itemName = result.hits[0].fields.item_name;
+  var calories = result.hits[0].fields.nf_calories;
+  var sugars = result.hits[0].fields.nf_sugars;
+  var fiber = result.hits[0].fields.nf_dietary_fiber;
+  appendNutrition('h3', newSearchTerm);
+  appendNutrition('p', 'Calories: ', calories);
+  appendNutrition('p', 'Sugars: ', sugars);
+  appendNutrition('p', 'Fiber: ', fiber);
+  console.log(itemName);
+});
 
 xhr.open('GET', apiAddress);
 xhr.send();
+};
+
+
+document.getElementById('search').addEventListener('click', function() {
+  if (!document.getElementById('input').value) {
+    document.getElementById('ingredient').innerHTML = '';
+    document.getElementById('error').innerHTML = 'We need an input! Ya silly';
+    return;
+  }
+  var inputField = document.getElementById('input').value;
+  nutrition(inputField);
+})

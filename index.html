@@ -14,6 +14,7 @@
       <h2>Ingredient</h2>
       <input id='input'></input>
       <button id='search'>Search</button>
+      <p id='error'></p>
     </section>
 
     <section class='about'>
@@ -24,8 +25,10 @@
     <section class='tabs'>
       <h2>results</h2>
 
-      <article class='nutrition'>
+      <article id ='nutrition' class='nutrition'>
         <h3>Nutrition</h3>
+        <section id='ingredient'>
+        </section>
       </article>
 
       <article class='recipes'>
@@ -33,6 +36,7 @@
       </article>
     </section>
 
-    scripts go here :)
+    <script src='secret.js'></script>
+    <script src='src/nutrition.js'></script>
   </body>
 </html>
