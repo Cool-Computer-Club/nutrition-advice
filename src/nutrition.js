@@ -38,9 +38,9 @@ var foodFinder = (function () {
       {
 
         changeDomElements('itemsName',getItemName(APIresult));
-        changeDomElements('caloriesCount','Calories: '+getCaloriesAmount(APIresult));
-        changeDomElements('sugarsCount','Sugars: '+getSugarAmount(APIresult));
-        changeDomElements('fiberCount','Fiber: '+getFiberAmount(APIresult));
+        changeDomElements('calories-count','Calories: '+getCaloriesAmount(APIresult));
+        changeDomElements('sugars-count','Sugars: '+getSugarAmount(APIresult));
+        changeDomElements('fiber-count','Fiber: '+getFiberAmount(APIresult));
         changeDomElements('error','')
         document.getElementById('results').style.visibility = 'visible';
         document.getElementById('about').style.visibility = 'hidden';
@@ -65,12 +65,12 @@ var foodFinder = (function () {
         if (spellMistake(APIresult.flaggedTokens)) {//if spell mistake exist
         suggResult=APIresult.flaggedTokens[0].suggestions[0].suggestion;
         changeDomElements('message-board','Did you mean ')
-        changeDomElements('searchWord',suggResult+'?')
+        changeDomElements('search-word',suggResult+'?')
       }
        else {
         nutrition(searchTerm);
         changeDomElements('message-board','');//clear message board
-        changeDomElements('searchWord','');//clear the suggword from screen
+        changeDomElements('search-word','');//clear the suggword from screen
         }
       });
 
@@ -80,9 +80,9 @@ var foodFinder = (function () {
   };
 
   //clicking on the suggestion result
-  document.getElementById('searchWord').onclick= function(){
+  document.getElementById('search-word').onclick= function(){
     changeDomElements('message-board','');
-    changeDomElements('searchWord','');
+    changeDomElements('search-word','');
     nutrition(suggResult);
       }
 
@@ -91,7 +91,7 @@ var foodFinder = (function () {
     //hide carrot and donut
 
     document.getElementById('pics').style.display = 'none';
-    document.getElementById('imgUpload').style.display = 'block';
+    document.getElementById('img-upload').style.display = 'block';
 
     //show upload
     if (!document.getElementById('input').value) {//checking if the value of input is null
