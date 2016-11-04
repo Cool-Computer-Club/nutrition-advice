@@ -22,7 +22,6 @@ h1{
   color: white;
   -webkit-text-stroke: 1px black;
   font-size: 3rem;
-  z-index: 1;
 }
 
 .splat-container {
