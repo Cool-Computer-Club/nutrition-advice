@@ -37,7 +37,7 @@ var foodFinder = (function () {
       if (ingredienExist(APIresult.total_hits))
       {
 
-        changeDomElements('itemsName',getItemName(APIresult));
+        changeDomElements('items-name',getItemName(APIresult));
         changeDomElements('calories-count','Calories: '+getCaloriesAmount(APIresult));
         changeDomElements('sugars-count','Sugars: '+getSugarAmount(APIresult));
         changeDomElements('fiber-count','Fiber: '+getFiberAmount(APIresult));
