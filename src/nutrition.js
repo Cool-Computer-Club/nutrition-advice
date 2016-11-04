@@ -83,6 +83,12 @@ var foodFinder = (function () {
 
   document.getElementById('search').addEventListener('click', function() {
     active = true;
+    //hide carrot and donut
+
+    document.getElementById('pics').style.display = 'none';
+    document.getElementById('img-upload').style.display = 'block';
+
+    //show upload
     if (!document.getElementById('input').value) {//checking if the value of input is null
       changeDomElements('error','We need an input! Ya silly')
       document.getElementById('results').style.visibility = 'hidden';
