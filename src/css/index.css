@@ -102,7 +102,11 @@ img {
   max-width: 200px;
   cursor:pointer;
 }
-
+#searchWord{
+  color:blue;
+  text-decoration: underline;
+  cursor: pointer;
+}
 .results h2 {
   display:none;
 }

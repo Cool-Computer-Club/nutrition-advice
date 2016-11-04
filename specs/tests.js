@@ -1,6 +1,6 @@
 QUnit.test('clicking on search activates function', function( assert ) {
   document.getElementById('search').click();
-  assert.equal(active, true, 'Passed');
+  assert.equal(foodFinder.getActive(), true, 'Passed');
 });
 
 QUnit.test('if user searches nothing, error is shown', function( assert ) {
@@ -25,10 +25,10 @@ QUnit.test('about text becomes visible again if user searches something, then cl
 QUnit.test('clicking on search activates spellcheck function if search field is not blank', function( assert ) {
   document.getElementById('input').value = 'p';
   document.getElementById('search').click();
-  assert.equal(spellCheckActive, true, 'Passed');
+  assert.equal(foodFinder.getSpellCheckActive(), true, 'Passed');
 });
 
 QUnit.test('when spellCheck function is called, API is queried', function( assert ) {
-  spellcheck();
-  assert.equal(!result, true, 'Passed');
+  foodFinder.spellcheck();
+  assert.equal(!foodFinder.getAPIresult(), true, 'Passed');
 });
