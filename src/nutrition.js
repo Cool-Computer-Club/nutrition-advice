@@ -38,16 +38,16 @@ var foodFinder = (function () {
       {
 
         changeDomElements('itemsName',getItemName(APIresult));
-        changeDomElements('caloriesCount',"Calories: "+getCaloriesAmount(APIresult));
-        changeDomElements('sugarsCount',"Sugars: "+getSugarAmount(APIresult));
-        changeDomElements('fiberCount',"Fiber: "+getFiberAmount(APIresult));
+        changeDomElements('caloriesCount','Calories: '+getCaloriesAmount(APIresult));
+        changeDomElements('sugarsCount','Sugars: '+getSugarAmount(APIresult));
+        changeDomElements('fiberCount','Fiber: '+getFiberAmount(APIresult));
         changeDomElements('error','')
         document.getElementById('results').style.visibility = 'visible';
         document.getElementById('about').style.visibility = 'hidden';
 
       }
       else{
-        changeDomElements('message-board',searchTerm + " isn't really something you should eat...")
+        changeDomElements('message-board',searchTerm + ' isn't really something you should eat...')
         document.getElementById('results').style.visibility = 'hidden';
         document.getElementById('about').style.visibility = 'hidden';
     }
@@ -65,7 +65,7 @@ var foodFinder = (function () {
         if (spellMistake(APIresult.flaggedTokens)) {//if spell mistake exist
         suggResult=APIresult.flaggedTokens[0].suggestions[0].suggestion;
         changeDomElements('message-board','Did you mean ')
-        changeDomElements('searchWord',suggResult+"?")
+        changeDomElements('searchWord',suggResult+'?')
       }
        else {
         nutrition(searchTerm);
@@ -75,7 +75,7 @@ var foodFinder = (function () {
       });
 
   xhr.open('POST', apiAddress);
-  xhr.setRequestHeader("Ocp-Apim-Subscription-Key", spellApiKey);
+  xhr.setRequestHeader('Ocp-Apim-Subscription-Key', spellApiKey);
   xhr.send(`Text=${searchTerm}`);
   };
 
