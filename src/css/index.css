@@ -22,7 +22,7 @@ h1{
   font-size: 3rem;
 }
 
-.greenSplatContainer {
+.green-splat-container {
   position: absolute;
   right: 55%;
   bottom: -5%;
@@ -30,7 +30,7 @@ h1{
   z-index: -1;
 }
 
-.redSplatContainer {
+.red-splat-container {
   position: absolute;
   top: 2%;
   left: 18%;
@@ -138,11 +138,11 @@ img {
   header{
     margin-bottom: -12%;
   }
-  .greenSplatContainer {
+  .green-splat-container {
     left: 0%;
     bottom: 0;
   }
-  .redSplatContainer{
+  .red-splat-container {
     position: absolute;
     top: 2%;
     left: 40%;
