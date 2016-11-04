@@ -6,7 +6,9 @@ var foodFinder = (function () {
     document.getElementById(elementID).innerText=status;
   }
   self.getSpellCheckActive=function(){return spellCheckActive;}
+
   self.getActive = function() { return active;}
+
   self.getAPIresult=function(){return APIresult;}
   function getSugarAmount(APIresult){ return APIresult.hits[0].fields.nf_sugars;}
 
@@ -16,13 +18,6 @@ var foodFinder = (function () {
 
   function getFiberAmount(APIresult){ return APIresult.hits[0].fields.nf_dietary_fiber;}
 
-  //appends nutrition results to screen(cant really understand how this function works, what is tagContent?)
-  function  appendNutrition (tagType, name, tagContent = '', targetID = 'ingredient') {
-    var newtritionElement = document.createElement(tagType);
-    var newtritionContent = document.createTextNode(name + ' ' + tagContent);
-    newtritionElement.appendChild(newtritionContent);
-    document.getElementById(targetID).appendChild(newtritionElement);
-  }
   function ingredienExist(key){
     if (key>0){ return true;}
     return false;
@@ -41,13 +36,14 @@ var foodFinder = (function () {
       console.log(APIresult.total_hits);
       if (ingredienExist(APIresult.total_hits))
       {
-          appendNutrition('h3', getItemName(APIresult));
-          appendNutrition('p', 'Calories: ', getCaloriesAmount(APIresult));
-          appendNutrition('p', 'Sugars: ', getSugarAmount(APIresult));
-          appendNutrition('p', 'Fiber: ', getFiberAmount(APIresult));
-          changeDomElements('error','')
-          document.getElementById('results').style.visibility = 'visible';
-          document.getElementById('about').style.visibility = 'hidden';
+
+        changeDomElements('itemsName',getItemName(APIresult));
+        changeDomElements('caloriesCount',"Calories: "+getCaloriesAmount(APIresult));
+        changeDomElements('sugarsCount',"Sugars: "+getSugarAmount(APIresult));
+        changeDomElements('fiberCount',"Fiber: "+getFiberAmount(APIresult));
+        changeDomElements('error','')
+        document.getElementById('results').style.visibility = 'visible';
+        document.getElementById('about').style.visibility = 'hidden';
 
       }
       else{
