@@ -18,7 +18,7 @@ var foodFinder = (function () {
 
   function getFiberAmount(APIresult){ return APIresult.hits[0].fields.nf_dietary_fiber;}
 
-  function ingredienExist(key){return key>0;}
+  function ingredientExist(key){return key>0;}
 
   function spellMistake(list){return list.length>0}
 
@@ -29,13 +29,13 @@ var foodFinder = (function () {
     var xhr = new XMLHttpRequest();
     xhr.addEventListener('load', function () {
       APIresult = JSON.parse(xhr.responseText);
-      if (ingredienExist(APIresult.total_hits))
+      if (ingredientExist(APIresult.total_hits))
       {
 
         changeDomElements('itemsName',getItemName(APIresult));
-        changeDomElements('caloriesCount','Calories: '+getCaloriesAmount(APIresult));
-        changeDomElements('sugarsCount','Sugars: '+getSugarAmount(APIresult));
-        changeDomElements('fiberCount','Fiber: '+getFiberAmount(APIresult));
+        changeDomElements('calories-count','Calories: '+getCaloriesAmount(APIresult));
+        changeDomElements('sugars-count','Sugars: '+getSugarAmount(APIresult));
+        changeDomElements('fiber-count','Fiber: '+getFiberAmount(APIresult));
         changeDomElements('error','')
         document.getElementById('results').style.visibility = 'visible';
         document.getElementById('about').style.visibility = 'hidden';
