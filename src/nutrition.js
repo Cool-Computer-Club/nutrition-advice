@@ -18,18 +18,14 @@ var foodFinder = (function () {
 
   function getFiberAmount(APIresult){ return APIresult.hits[0].fields.nf_dietary_fiber;}
 
-  function ingredienExist(key){
-    if (key>0){ return true;}
-    return false;
-  }
-  function spellMistake(list){
-    if(list.length>0) return true;
-    return false;
-  }
+  function ingredienExist(key){return key>0;}
+
+  function spellMistake(list){return list.length>0;}
+
   function nutrition(searchTerm) {
-    domainName = 'https://api.nutritionix.com/v1_1/search/'
-    nutritionURL = '?results=0%3A20&cal_min=0&cal_max=50000&fields=item_name%2Cnf_sugars%2Cnf_calories%2Cnf_dietary_fiber&'
-    apiAddress = `${domainName}${searchTerm}${nutritionURL}appId=${nutritionApiID}&appKey=${nutritionApiKey}`
+    domainName = 'https://api.nutritionix.com/v1_1/search/';
+    nutritionURL = '?results=0%3A20&cal_min=0&cal_max=50000&fields=item_name%2Cnf_sugars%2Cnf_calories%2Cnf_dietary_fiber&';
+    apiAddress = `${domainName}${searchTerm}${nutritionURL}appId=${nutritionApiID}&appKey=${nutritionApiKey}`;
     var xhr = new XMLHttpRequest();
     xhr.addEventListener('load', function () {
       APIresult = JSON.parse(xhr.responseText);
@@ -58,13 +54,13 @@ var foodFinder = (function () {
   self.spellcheck = function(searchTerm) {
   spellCheckActive = true;
   domainName = 'https://api.cognitive.microsoft.com/bing/v5.0/spellcheck/?Text='
-  apiAddress = `${domainName}${searchTerm}`
+  apiAddress = `${domainName}${searchTerm}`;
   var xhr = new XMLHttpRequest();
   xhr.addEventListener('load', function () {
         APIresult = JSON.parse(xhr.responseText);
         if (spellMistake(APIresult.flaggedTokens)) {//if spell mistake exist
         suggResult=APIresult.flaggedTokens[0].suggestions[0].suggestion;
-        changeDomElements('message-board','Did you mean ')
+        changeDomElements('message-board','Did you mean ');
         changeDomElements('searchWord',suggResult+"?")
       }
        else {
