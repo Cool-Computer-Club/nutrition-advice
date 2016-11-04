@@ -33,9 +33,9 @@ var foodFinder = (function () {
       {
 
         changeDomElements('itemsName',getItemName(APIresult));
-        changeDomElements('calories-count','Calories: '+getCaloriesAmount(APIresult));
-        changeDomElements('sugars-count','Sugars: '+getSugarAmount(APIresult));
-        changeDomElements('fiber-count','Fiber: '+getFiberAmount(APIresult));
+        changeDomElements('caloriesCount','Calories: '+getCaloriesAmount(APIresult));
+        changeDomElements('sugarsCount','Sugars: '+getSugarAmount(APIresult));
+        changeDomElements('fiberCount','Fiber: '+getFiberAmount(APIresult));
         changeDomElements('error','')
         document.getElementById('results').style.visibility = 'visible';
         document.getElementById('about').style.visibility = 'hidden';

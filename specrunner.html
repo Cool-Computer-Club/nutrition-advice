@@ -3,6 +3,8 @@
 <head>
   <meta charset='utf-8'>
   <meta name='viewport' content='width=device-width'>
+  <link href='https://fonts.googleapis.com/css?family=Sniglet:800' rel='stylesheet'>
+  <link rel='stylesheet' href='src/css/index.css'>
   <title>QUnit Example</title>
   <link rel='stylesheet' href='https://code.jquery.com/qunit/qunit-2.0.1.css'>
 </head>
@@ -28,39 +30,37 @@
         <p id='error'></p>
       </section>
 
-      <section id='imgUpload'>
-        <i class='fa fa-upload fa-4x' aria-hidden='true'></i>
-        <h3>Upload Images</h3>
+  <section id='img-upload'>
+    <i class='fa fa-upload fa-4x' aria-hidden='true'></i>
+    <h3>Upload Images</h3>
+  </section>
+
+  <section id='pics'>
+     <img id='carrot' src='images/carrot.jpeg'>
+    <img id='donut' src='images/donut.jpeg'>
+  </section>
+
+  <section id= 'about' class='about'>
+    <h2>Instructions</h2>
+    <p>Enter your ingredient, we will tell you its nutritional values!</p>
+  </section>
+
+  <section id ='results' class='results'>
+    <h2>results</h2>
+
+    <article id ='nutrition' class='nutrition'>
+      <h3>Nutrition</h3>
+      <section id='ingredient'>
+        <h3 id='itemsName'></h3>
+        <p id='caloriesCount'></p>
+        <p id='sugarsCount'></p>
+        <p id='fiberCount'></p>
       </section>
-
-      <section id='pics'>
-        <img id='carrot' src='images/carrot.jpeg'>
-        <img id='donut' src='images/donut.jpeg'>
-      </section>
-
-      <section id= 'about' class='about'>
-        <h2>Instructions</h2>
-        <p>Enter your ingredient, we will tell you its nutritional values!</p>
-      </section>
-
-      <section id ='results' class='results'>
-        <h2>results</h2>
-
-
-        <article id ='nutrition' class='nutrition'>
-          <h3>Nutrition</h3>
-          <section id='ingredient'>
-            <h3 id='itemsName'></h3>
-            <p id='caloriesCount'></p>
-            <p id='sugarsCount'></p>
-            <p id='fiberCount'></p>
-          </section>
-        </article>
-      </section>
-
-
+    </article>
+  </section>
   <div id='qunit'></div>
   <div id='qunit-fixture'></div>
+      <script src='https://use.fontawesome.com/00b430cc16.js'></script>
   <script src='https://code.jquery.com/qunit/qunit-2.0.1.js'></script>
   <script src='secret.js'></script>
   <script src='src/nutrition.js'></script>
