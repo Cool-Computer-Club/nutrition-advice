@@ -7,15 +7,18 @@
   <link rel='stylesheet' href='https://code.jquery.com/qunit/qunit-2.0.1.css'>
 </head>
 <body>
-      <div class='splat-container'>
+
+      <div class='green-splat-container'>
         <img src='images/splat.svg'>
       </div>
-      <div class='splat-container2'>
-        <img id='redSplat' src='images/splat1.png'>
+      <div class='red-splat-container'>
+        <img id='red-splat' src='images/splat1.png'>
       </div>
+
       <header class='header'>
         <h1>FOOD<br>FINDER</h1>
       </header>
+
       <section class='input'>
         <h2>Whatcha gonna eat?!</h2>
         <input id='input'></input>
@@ -39,8 +42,11 @@
         <h2>Instructions</h2>
         <p>Enter your ingredient, we will tell you its nutritional values!</p>
       </section>
+
       <section id ='results' class='results'>
         <h2>results</h2>
+
+
         <article id ='nutrition' class='nutrition'>
           <h3>Nutrition</h3>
           <section id='ingredient'>
@@ -51,6 +57,7 @@
           </section>
         </article>
       </section>
+
 
   <div id='qunit'></div>
   <div id='qunit-fixture'></div>
