@@ -4,8 +4,6 @@
   font-family: futura;
 }
 
-
-
 html, body {
   margin: 0;
   padding: 0;
@@ -42,7 +40,7 @@ h1{
   z-index: -1;
 }
 
-#redSplat {
+#red-splat {
   margin: auto;
   height: 150%;
   width: 150%;
@@ -90,7 +88,7 @@ h1{
   visibility: hidden;
 }
 
-#imgUpload {
+#img-upload {
   background-color: #005ab4;
   width: 60%;
   max-width: 20rem;
@@ -117,7 +115,7 @@ img {
   cursor:pointer;
 }
 
-#searchWord{
+#search-word{
   color:blue;
   text-decoration: underline;
   cursor: pointer;
