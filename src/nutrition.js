@@ -47,7 +47,7 @@ var foodFinder = (function () {
 
       }
       else{
-        changeDomElements('message-board',searchTerm + ' isn't really something you should eat...')
+        changeDomElements('message-board',searchTerm + ' isn\'t really something you should eat...')
         document.getElementById('results').style.visibility = 'hidden';
         document.getElementById('about').style.visibility = 'hidden';
     }
