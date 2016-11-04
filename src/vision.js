@@ -3,7 +3,7 @@ var describeImage = new XMLHttpRequest();
 describeImage.addEventListener('load', function() {
     var result = JSON.parse(describeImage.responseText)
     console.log(result);
-    spellcheck(result.tags[0].name);
+    foodFinder.spellcheck(result.tags[0].name);
   })
 
 var getImageDescription = function (url) {
