@@ -36,6 +36,7 @@ var foodFinder = (function () {
         changeDomElements('caloriesCount','Calories: '+getCaloriesAmount(APIresult));
         changeDomElements('sugarsCount','Sugars: '+getSugarAmount(APIresult));
         changeDomElements('fiberCount','Fiber: '+getFiberAmount(APIresult));
+
         changeDomElements('error','')
         document.getElementById('results').style.visibility = 'visible';
         document.getElementById('about').style.visibility = 'hidden';
