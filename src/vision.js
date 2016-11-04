@@ -12,12 +12,12 @@ var getImageDescription = function (url) {
   describeImage.send(body);
 }
 
-document.getElementById('img-upload').addEventListener('click', function(){
+document.getElementById('imgUpload').addEventListener('click', function(){
   document.getElementById('pics').style.display = 'inline';
   document.getElementById('donut').style.display = 'inline';
   document.getElementById('carrot').style.display = 'inline';
   document.getElementById('error').innerText = '';
-  document.getElementById('img-upload').style.display = 'none';
+  document.getElementById('imgUpload').style.display = 'none';
 })
 
 document.getElementById('carrot').addEventListener('click', function(){

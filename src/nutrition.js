@@ -87,7 +87,7 @@ var foodFinder = (function () {
     //hide carrot and donut
 
     document.getElementById('pics').style.display = 'none';
-    document.getElementById('img-upload').style.display = 'block';
+    document.getElementById('imgUpload').style.display = 'block';
 
     //show upload
     if (!document.getElementById('input').value) {//checking if the value of input is null
