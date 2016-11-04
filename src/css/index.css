@@ -13,12 +13,16 @@ html, body {
 
 .header {
   font-size: 1.5rem;
-  margin-top: -20px;
-  /*color: white;*/
-  /*background-color: #00b45a;*/
+  margin-top: 5rem;
   z-index: 1;
 }
 
+h1{
+  font-family: 'Sniglet', cursive;
+  color: white;
+  -webkit-text-stroke: 1px black;
+  font-size: 3rem;
+}
 
 .splat-container {
   position: absolute;
@@ -30,8 +34,18 @@ html, body {
 
 .splat-container2 {
   position: absolute;
-  top: -3%;
-  left: 37%;
+  top: 2%;
+  left: 18%;
+  margin:auto;
+  height: 10rem;
+  width: 15rem;;
+  z-index: -1;
+}
+
+#redSplat {
+  margin: auto;
+  height: 150%;
+  width: 150%;
   z-index: -1;
 }
 
@@ -41,6 +55,11 @@ h1 {
 
 .input {
   font-size: 1.2rem;
+  margin-top: 18%;
+}
+
+.input h2 {
+  font-size: 1rem;
 }
 
 #input {
@@ -113,9 +132,17 @@ img {
   display:none;
 }
 
-@media (max-width: 600px) {
+@media (min-width: 600px) {
+  header{
+    margin-bottom: -12%;
+  }
   .splat-container {
     left: 0%;
     bottom: 0;
+  }
+  .splat-container2 {
+    position: absolute;
+    top: 2%;
+    left: 40%;
   }
 }
