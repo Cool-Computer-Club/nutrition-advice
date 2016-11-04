@@ -3,22 +3,32 @@
 <head>
   <meta charset='utf-8'>
   <meta name='viewport' content='width=device-width'>
+  <link href='https://fonts.googleapis.com/css?family=Sniglet:800' rel='stylesheet'>
+  <link rel='stylesheet' href='src/css/index.css'>
   <title>QUnit Example</title>
   <link rel='stylesheet' href='https://code.jquery.com/qunit/qunit-2.0.1.css'>
 </head>
 <body>
-  <header class='header'>
-    <h1>Food Finder</h1>
-  </header>
 
-  <section class='input'>
-    <h2>Ingredient</h2>
-    <input id='input'></input>
-    <button id='search'>Search</button>
-    <p id='message-board'></p>
-    <p id='search-word'></p>
-    <p id='error'></p>
-  </section>
+      <div class='green-splat-container'>
+        <img src='images/splat.svg'>
+      </div>
+      <div class='red-splat-container'>
+        <img id='red-splat' src='images/splat1.png'>
+      </div>
+
+      <header class='header'>
+        <h1>FOOD<br>FINDER</h1>
+      </header>
+
+      <section class='input'>
+        <h2>Whatcha gonna eat?!</h2>
+        <input id='input'></input>
+        <button id='search'>Search</button>
+        <p id='messageBoard'></p>
+        <p id='searchWord'></p>
+        <p id='error'></p>
+      </section>
 
   <section id='img-upload'>
     <i class='fa fa-upload fa-4x' aria-hidden='true'></i>
@@ -26,8 +36,8 @@
   </section>
 
   <section id='pics'>
-     <!-- <img id='carrot' src='images/carrot.jpeg'>
-    <img id='donut' src='images/donut.jpeg'> -->
+     <img id='carrot' src='images/carrot.jpeg'>
+    <img id='donut' src='images/donut.jpeg'>
   </section>
 
   <section id= 'about' class='about'>
@@ -41,15 +51,19 @@
     <article id ='nutrition' class='nutrition'>
       <h3>Nutrition</h3>
       <section id='ingredient'>
+        <h3 id='itemsName'></h3>
+        <p id='caloriesCount'></p>
+        <p id='sugarsCount'></p>
+        <p id='fiberCount'></p>
       </section>
     </article>
   </section>
   <div id='qunit'></div>
   <div id='qunit-fixture'></div>
+      <script src='https://use.fontawesome.com/00b430cc16.js'></script>
   <script src='https://code.jquery.com/qunit/qunit-2.0.1.js'></script>
   <script src='secret.js'></script>
   <script src='src/nutrition.js'></script>
-  <script src='src/spell.js'></script>
   <script src='src/vision.js'></script>
   <script src='specs/tests.js'></script>
 </body>

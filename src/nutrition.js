@@ -18,14 +18,10 @@ var foodFinder = (function () {
 
   function getFiberAmount(APIresult){ return APIresult.hits[0].fields.nf_dietary_fiber;}
 
-  function ingredienExist(key){
-    if (key>0){ return true;}
-    return false;
-  }
-  function spellMistake(list){
-    if(list.length>0) return true;
-    return false;
-  }
+  function ingredientExist(key){return key>0;}
+
+  function spellMistake(list){return list.length>0}
+
   function nutrition(searchTerm) {
     domainName = 'https://api.nutritionix.com/v1_1/search/'
     nutritionURL = '?results=0%3A20&cal_min=0&cal_max=50000&fields=item_name%2Cnf_sugars%2Cnf_calories%2Cnf_dietary_fiber&'
@@ -33,21 +29,21 @@ var foodFinder = (function () {
     var xhr = new XMLHttpRequest();
     xhr.addEventListener('load', function () {
       APIresult = JSON.parse(xhr.responseText);
-      console.log(APIresult.total_hits);
-      if (ingredienExist(APIresult.total_hits))
+      if (ingredientExist(APIresult.total_hits))
       {
 
-        changeDomElements('items-name',getItemName(APIresult));
-        changeDomElements('calories-count','Calories: '+getCaloriesAmount(APIresult));
-        changeDomElements('sugars-count','Sugars: '+getSugarAmount(APIresult));
-        changeDomElements('fiber-count','Fiber: '+getFiberAmount(APIresult));
+        changeDomElements('itemsName',getItemName(APIresult));
+        changeDomElements('caloriesCount','Calories: '+getCaloriesAmount(APIresult));
+        changeDomElements('sugarsCount','Sugars: '+getSugarAmount(APIresult));
+        changeDomElements('fiberCount','Fiber: '+getFiberAmount(APIresult));
+
         changeDomElements('error','')
         document.getElementById('results').style.visibility = 'visible';
         document.getElementById('about').style.visibility = 'hidden';
 
       }
       else{
-        changeDomElements('message-board',searchTerm + ' isn\'t really something you should eat...')
+        changeDomElements('messageBoard',searchTerm + ' isn\'t really something you should eat...')
         document.getElementById('results').style.visibility = 'hidden';
         document.getElementById('about').style.visibility = 'hidden';
     }
@@ -64,13 +60,13 @@ var foodFinder = (function () {
         APIresult = JSON.parse(xhr.responseText);
         if (spellMistake(APIresult.flaggedTokens)) {//if spell mistake exist
         suggResult=APIresult.flaggedTokens[0].suggestions[0].suggestion;
-        changeDomElements('message-board','Did you mean ')
-        changeDomElements('search-word',suggResult+'?')
+        changeDomElements('messageBoard','Did you mean ')
+        changeDomElements('searchWord',suggResult+'?')
       }
        else {
         nutrition(searchTerm);
-        changeDomElements('message-board','');//clear message board
-        changeDomElements('search-word','');//clear the suggword from screen
+        changeDomElements('messageBoard','');//clear message board
+        changeDomElements('searchWord','');//clear the suggword from screen
         }
       });
 
@@ -80,9 +76,9 @@ var foodFinder = (function () {
   };
 
   //clicking on the suggestion result
-  document.getElementById('search-word').onclick= function(){
-    changeDomElements('message-board','');
-    changeDomElements('search-word','');
+  document.getElementById('searchWord').onclick= function(){
+    changeDomElements('messageBoard','');
+    changeDomElements('searchWord','');
     nutrition(suggResult);
       }
 
